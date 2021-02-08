@@ -89,5 +89,5 @@ class CriteoClient:
             "endDate": date,
         }
 
-        result = self.do_request(f"{BASE_API_URL}/2020-10/statistics/report", params=params)
+        result = self.do_request(f"{BASE_API_URL}/2021-01/statistics/report", params=params)
         return result
