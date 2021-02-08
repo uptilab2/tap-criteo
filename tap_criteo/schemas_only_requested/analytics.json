@@ -1,0 +1,19 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": false,
+    "properties": {
+		"Clicks": {"type":["null", "number"]},
+		"Displays": {"type":["null", "number"]},
+		"AdvertiserCost": {"type":["null", "number"]},
+		"SalesPc30d": {"type":["null", "number"]},
+		"SalesAllPc30d": {"type":["null", "number"]},
+		"SalesPv24h": {"type":["null", "number"]},
+		"SalesPc30dPv24h": {"type":["null", "number"]},
+		"RevenueGeneratedPc30d": {"type":["null", "number"]},
+		"RevenueGeneratedPv24h": {"type":["null", "number"]},
+		"RevenueGeneratedPc30dPv24h": {"type":["null", "number"]},
+		"ExposedUsers": {"type":["null", "number"]},
+		"Audience": {"type":["null", "number"]},
+		"Reach": {"type":["null", "number"]}
+    }
+}

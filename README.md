@@ -6,12 +6,23 @@ spec](https://github.com/singer-io/getting-started/blob/master/SPEC.md).
 
 This tap:
 
-- Pulls raw data from [FIXME](http://example.com)
+- Pulls raw data from Criteo Marketing Solutions API (https://developers.criteo.com/marketing-solutions/docs)
 - Extracts the following resources:
-  - [FIXME](http://example.com)
+  - Analytics (https://developers.criteo.com/marketing-solutions/docs/analytics)
 - Outputs the schema for each resource
 - Incrementally pulls data based on the input state
 
+### Config
+```
+{
+  "username": string,
+  "password": string,
+  "start_date": string (YYYY-MM-DD),
+  "advertiser_id": comma separated string, (default: all)
+  "currency": string (default: EUR)
+}
+```
+
 ---
 
-Copyright &copy; 2018 Stitch
+Copyright &copy; 2021 Stitch, Reeport
