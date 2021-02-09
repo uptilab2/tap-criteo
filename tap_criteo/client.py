@@ -54,11 +54,6 @@ class CriteoClient:
             headers=headers,
             json=params
         )
-        logger.critical((
-            url,
-            headers,
-            params
-        ))
         logger.info(f'request api - response status: {response.status_code}')
         if response.status_code == 429:
             raise ClientHttpError('Too many requests')
