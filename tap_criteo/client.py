@@ -47,7 +47,7 @@ class CriteoClient:
         self.currency = currency or 'EUR'
 
     @singer.utils.ratelimit(600, 60)
-    def do_request(self, url, params={}):
+    def do_request(self, url, params={}, retry_count=0):
         headers = {"Authorization": f"Bearer {self.access_token}", "Content-Type": "application/*+json", "Accept": "application/json"}
         response = requests.post(
             url=url,
@@ -59,6 +59,11 @@ class CriteoClient:
             raise ClientHttpError('Too many requests')
         elif response.status_code == 401:
             raise ClientHttpError('Token is expired')
+        elif response.status_code == 500:
+            #weird error from api, need to retry
+            if retry_count >= 5:
+                raise ClientHttpError("Criteo API server error, cannot retrieve data")
+            return self.do_request(url, params, retry_count + 1)
         elif response.status_code != 200:
             raise ClientHttpError(f"[{response.status_code}] : {response.text}")
         result = response.json()
